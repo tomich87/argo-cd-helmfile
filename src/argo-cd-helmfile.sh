@@ -224,18 +224,6 @@ case $phase in
     # --no-hooks                   prevent hooks from running during install
     # --skip-crds                  if set, no CRDs will be installed. By default, CRDs are installed if not already present
 
-    if [[ ${helm_major_version} -eq 2 && "${KUBE_VERSION}" ]]; then
-      INTERNAL_HELM_TEMPLATE_OPTIONS="${INTERNAL_HELM_TEMPLATE_OPTIONS} --kube-version=${KUBE_VERSION}"
-    fi
-
-    if [[ ${helm_major_version} -eq 3 && "${KUBE_API_VERSIONS}" ]]; then
-      INTERNAL_HELM_API_VERSIONS=""
-      for v in ${KUBE_API_VERSIONS//,/ }; do
-        INTERNAL_HELM_API_VERSIONS="${INTERNAL_HELM_API_VERSIONS} --api-versions=$v"
-      done
-      INTERNAL_HELM_TEMPLATE_OPTIONS="${INTERNAL_HELM_TEMPLATE_OPTIONS} ${INTERNAL_HELM_API_VERSIONS}"
-    fi
-
     ${helmfile} \
       template \
       --skip-deps ${INTERNAL_HELMFILE_TEMPLATE_OPTIONS} \
