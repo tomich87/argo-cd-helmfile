@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-set -x
+set +x
 
 if [[ -f "Chart.yaml" && $(cat Chart.yaml | egrep "^apiVersion:" | cut -d " " -f2- | tr -d '[:blank:]') == "v2" ]]; then
   HELM_BINARY="helm-v3"
