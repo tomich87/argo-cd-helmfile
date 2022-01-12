@@ -34,7 +34,7 @@
 # KUBE_API_VERSIONS="v1,apps/v1,..."
 
 set -e
-set -x
+set +x
 
 echoerr() { printf "%s\n" "$*" >&2; }
 
