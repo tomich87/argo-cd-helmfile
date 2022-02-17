@@ -92,7 +92,7 @@ fi
 if [[ "${HELM_BINARY}" ]]; then
   helm="${HELM_BINARY}"
 else
-  helm="$(which helm)"
+  helm="/usr/local/bin/helm.bin"
 fi
 
 if [[ "${HELMFILE_BINARY}" ]]; then
