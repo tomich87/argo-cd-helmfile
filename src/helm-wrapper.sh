@@ -8,7 +8,7 @@ if [[ -f "Chart.yaml" && $(cat Chart.yaml | egrep "^apiVersion:" | cut -d " " -f
 fi
 
 HELM_BINARY="${HELM_BINARY:=helm-v2}"
-helm="$(which ${HELM_BINARY})"
+helm="usr/local/bin/helm.bin"
 
 # helm version
 # these commands should work for both v2 and v3
